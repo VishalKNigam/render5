@@ -2,7 +2,7 @@ const {ProductModel}=require("../Models/product.model");
 require('dotenv').config()
 const { Router } = require('express');
 const productRouter = Router();
-const {auth}=require("../Middleware/auth.middleware")
+const {auth}=require("../Middleware/auth.middleware");
 
 // add
 productRouter.post("/add", async(req,res)=>{
@@ -11,7 +11,7 @@ productRouter.post("/add", async(req,res)=>{
         await product.save();
         res.status(201).json({ message: 'Product created successfully', product });
       } catch (error) {
-        console.error('Error creating product:', error);
+        console.error('Error creating product:', error.message);
         res.status(500).json({ error: 'Server error' });
       }
 });

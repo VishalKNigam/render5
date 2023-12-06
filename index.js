@@ -3,7 +3,7 @@ const cors = require('cors')
 const { connection } = require('./Config/db');
 const { userRouter } = require('./Routes/user.route');
 const { productRouter } = require('./Routes/product.route');
-
+require("dotenv").config();
 
 const app = express()
 
@@ -13,11 +13,11 @@ app.use(express.json())
 
 app.use(cors())
 
-app.use("/",userRouter)
-app.use("/",productRouter)
+app.use("/", userRouter)
+app.use("/", productRouter)
 
 
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
     res.send("Welcome to OLX Backend...")
 });
 
@@ -28,5 +28,5 @@ app.listen(PORT, async () => {
     } catch (error) {
         console.log(error);
     }
-    console.log('server is runnning on port ',PORT);
-})
+    console.log('server is runnning on port ', PORT);
+});

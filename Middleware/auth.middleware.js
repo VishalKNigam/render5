@@ -16,6 +16,7 @@ const auth = (req, res, next) => {
             })
         } else {
             next()
+            
         }
 
     } catch (error) {
